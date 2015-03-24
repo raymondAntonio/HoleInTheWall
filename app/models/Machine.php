@@ -139,18 +139,6 @@ class Machine implements Atm {
 		return $tokenSumEqualsWitdrawal && $deptokenEqualsOrGreater;
 	}
 
-    /**
-     * HELPER CLASS - NO LONGER USED - TODO: REMOVE THIS LATER BEFORE SUBMITTING.
-     * @param array $withdrawalNoteTokenizer
-     * @return boolean
-     */
-	private function isNoteDepositBiggerThanNoteWithdrawal($withdrawalNoteTokenizer) {
-		$fifty = ($this->depositFifties > 0) && !empty($withdrawalNoteTokenizer [0]);
-	    $twenty = ($this->depositTwenties > 0) && !empty($withdrawalNoteTokenizer [1]);
-
-		return $fifty || $twenty;
-	}
-
 	/**
 	 * @return array
 	 */

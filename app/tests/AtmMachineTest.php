@@ -130,42 +130,6 @@ class AtmMachineTest extends \PHPUnit_Framework_TestCase {
  		);
  	}
 
-	/**
-	 *  Assessing a private method with the reflection class
-	 * @param unknown $object
-	 * @param unknown $methodName
-	 * @param array $parameters
-	 */
- 	public function invokeMethod(&$object, $methodName, array $parameters = array()){	
- 		$reflection = new \ReflectionClass(get_class($object));
- 		$method = $reflection->getMethod($methodName);
- 		$method->setAccessible(true);
- 		return $method->invokeArgs($object, $parameters);
- 	}
-
- 	/**
- 	 * Test the private method IsNoteDepositBiggerThanNoteWithdrawal
- 	 * @dataProvider testIsNoteDepositBiggerThanNoteWithdrawalData
- 	 * @depends testWithdrawalNoteTokenizer
- 	 */
- 	public function testIsNoteDepositBiggerThanNoteWithdrawal($actualResultIWSWNT, $withdrawalAmount, $iniFifties, $iniTwenties, $expected) {
- 		$machine = new Machine($withdrawalAmount, $iniFifties, $iniTwenties);
- 		$this->assertEquals($expected, $this->invokeMethod($machine, 'isNoteDepositBiggerThanNoteWithdrawal', array($actualResultIWSWNT)));
- 
- 	}
-
- 	public function testIsNoteDepositBiggerThanNoteWithdrawalData() {
- 		return array(
- 				array(-20, 10, 10, false),
- 				array(10, 10, 10, false),
- 				array(40, 1, 1, false),
- 				array(50, 0, 5, false),
- 				array(130, 2, 5, true),
- 				array(265, 20, 20, false),
- 				array(360.666, 100, 1000, false),
- 				array(130000000, 2600000, 20, true)
- 		);
- 	}
 
  	/**
  	 * @dataProvider testgetReportData
