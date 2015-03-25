@@ -2,6 +2,13 @@
 
 class View {
 
+	private static function forwardAndRetrieve($withdrawnAmount, $iniFifties, $iniTwenties) {
+		$atmReport = array();
+		$nextMachine = new Machine($withdrawnAmount, $iniFifties, $iniTwenties);
+		$atmReport = $nextMachine->getReport();
+		return $atmReport;
+	}
+
 	public static function stdinReadDepositInput() {
 		// Open the file pointer to read from stdin.
 		$fr=fopen("php://stdin","r");
@@ -18,7 +25,7 @@ class View {
 		$fr=fopen("php://stdin","r");
 		while($input = fscanf(STDIN, "%d\n")) {
 			$atmController = new AtmController;
-			$atmReport = $atmController->forwardAndRetrieve($input[0], $iniFifties, $iniTwenties);
+			$atmReport = self::forwardAndRetrieve($input[0], $iniFifties, $iniTwenties);
 			fclose ($fr); // Close file handle.
 			return $atmReport;
 		};
