@@ -2,23 +2,13 @@
 
 class View {
 
-	public static function stdinReadfiftiesDepositInput() {
+	public static function stdinReadDepositInput() {
 		// Open the file pointer to read from stdin.
 		$fr=fopen("php://stdin","r");
 		while($input = fscanf(STDIN, "%d\n")) {
-			$fifties = $input[0] != NULL ? $input[0] : 0;
+			$depositInput = $input[0] != NULL ? $input[0] : 0;
 			fclose ($fr); // Close file handle.
-			return $fifties;
-		};
-	}
-
-	public static function stdinReadTwentyDepositInput() {
-		// Open the file pointer to read from stdin.
-		$fr=fopen("php://stdin","r");
-		while($input = fscanf(STDIN, "%d\n")) {
-			$twenties = $input[0] != NULL ? $input[0] : 0;
-			fclose ($fr); // Close file handle.
-			return $twenties;
+			return $depositInput;
 		};
 	}
 

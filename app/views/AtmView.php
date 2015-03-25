@@ -8,11 +8,11 @@ echo $description;
 
 $fiftyNoteDepositDesc = PHP_EOL. "Please Enter the number of $50 notes you wish to deposit: " . PHP_EOL;
 echo $fiftyNoteDepositDesc; 
-$iniFifties = AtmController::stdinReadfiftiesDepositInput();
+$iniFifties = AtmController::stdinReadDepositInput();
 
 $twentyNoteDepositDesc =  "Please Enter the number of $20 notes you wish to deposit: " . PHP_EOL;
 echo $twentyNoteDepositDesc;
-$iniTwenties = AtmController::stdinReadTwentyDepositInput();
+$iniTwenties = AtmController::stdinReadDepositInput();
 
 if(AtmController::isValid($iniFifties, $iniTwenties)) {
     $totalDeposit = ($iniFifties * 50) + ($iniTwenties * 20);

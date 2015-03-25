@@ -21,12 +21,8 @@ class AtmController {
 		return Machine::isValid($fifties, $twenties);
 	}
 
-	public static function stdinReadfiftiesDepositInput() {
-		return View::stdinReadfiftiesDepositInput();
-	}
-
-	public static function stdinReadTwentyDepositInput() {
-		return View::stdinReadTwentyDepositInput();
+	public static function stdinReadDepositInput() {
+		return View::stdinReadDepositInput();
 	}
 
 	public static function stdinReadInput($iniFifties, $iniTwenties) {

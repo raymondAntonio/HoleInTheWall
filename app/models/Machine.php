@@ -90,7 +90,7 @@ class Machine implements Atm {
 						$withdrawal = $withdrawal - FIFTY;
 					}
 				} while ($withdrawal > $dep20sSum);
-				
+
 				while ($withdrawal > 0) {
 					$twentyNotes += 1;
 					$dep20s -= 1;
