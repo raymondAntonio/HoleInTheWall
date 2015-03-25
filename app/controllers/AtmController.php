@@ -1,6 +1,5 @@
 <?php
 
-require_once(dirname(__FILE__).'/../models/Machine.php');
 require_once(dirname(__FILE__).'/../models/View.php');
 
 class AtmController {
